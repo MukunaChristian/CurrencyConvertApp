@@ -1,43 +1,57 @@
+import { Entypo } from "@expo/vector-icons";
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Alert, Linking, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { RowItem, RowSeparator } from "../components/RowItem";
+import { colors } from "../constants/colors";
 
-const styles = StyleSheet.create({
-  row: {
-    padding: 10,
-  },
-
-  text: {
-    fontSize: 16,
-    color: "blue",
-  },
-
-  separator: {
-    backgroundColor: "gray",
-    height: StyleSheet.hairlineWidth,
-    marginLeft: 10,
-    marginRight: 10,
-  },
-});
-
+const openUrl = (url) => {
+  Linking.openURL(url).catch(() => {
+    Alert.alert("sorry, something went wrong");
+  });
+};
 export default function App() {
   return (
-    <SafeAreaView>
-      <TouchableOpacity style={styles.row}>
-        <Text style={styles.text}>Theme</Text>
-      </TouchableOpacity>
+    <SafeAreaView style={{ flex: 1 }}>
+      <ScrollView>
+        <RowItem
+          text="Theme"
+          onPress={() => openUrl("hts://webmaxcodingacademy.co.za/")}
+          rightIcon={
+            <Entypo name="chevron-right" size={15} color={colors.icon} />
+          }
+        />
 
-      <View style={styles.separator} />
+        <RowSeparator />
+        <RowItem
+          text={"Reacy Native Basics"}
+          onPress={() => alert("chris hi")}
+          rightIcon={<Entypo name="export" size={15} />}
+        />
 
-      <TouchableOpacity style={styles.row}>
-        <Text style={styles.text}>Reacy Native Basics</Text>
-      </TouchableOpacity>
-      
-      <View style={styles.separator} />
+        <RowSeparator />
 
-      <TouchableOpacity style={styles.row}>
-        <Text style={styles.text}>React Native by Example</Text>
-      </TouchableOpacity>
+        <RowItem
+          text={"React Native by Example"}
+          onPress={() => alert("hi mukune")}
+          rightIcon={<Entypo name="export" size={15} color={colors.icon} />}
+        />
+        <RowSeparator />
+
+        <RowItem
+          text={"React Native by Example"}
+          onPress={() => alert("hi mukune")}
+          rightIcon={<Entypo name="export" size={15} color={colors.icon} />}
+        />
+        <RowSeparator />
+
+        <RowItem
+          text={"React Native by Example"}
+          onPress={() => alert("hi mukune")}
+          rightIcon={<Entypo name="export" size={15} color={colors.icon} />}
+        />
+        <RowSeparator />
+      </ScrollView>
     </SafeAreaView>
   );
 }
