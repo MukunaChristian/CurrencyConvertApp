@@ -7,4 +7,5 @@ export const colors = {
   primary: "#4f6d7a",
   success: "#16A34A",
   danger: "#DC2626",
+  white:"#fff"
 };

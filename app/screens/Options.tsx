@@ -2,8 +2,8 @@ import { Entypo } from "@expo/vector-icons";
 import React from "react";
 import { Alert, Linking, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { RowItem, RowSeparator } from "../components/RowItem";
-import { colors } from "../constants/colors";
+import { RowItem, RowSeparator } from "../../components/RowItem";
+import { colors } from "../../constants/colors";
 
 const openUrl = (url) => {
   Linking.openURL(url).catch(() => {
